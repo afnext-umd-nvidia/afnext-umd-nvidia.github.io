@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const repoUrl = 'https://github.com/afnext-umd-nvidia/afnext-umd-nvidia.github.io'
+const codeUrl = 'https://github.com/NVIDIA/audio-flamingo'
+const modelUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-hf'
 
 const authors = [
   { name: 'Sreyan Ghosh', affiliations: '1,2' },
@@ -23,7 +24,8 @@ const authors = [
 ]
 
 const topLinks = [
-  { label: 'Code', href: repoUrl, primary: true, external: true },
+  { label: 'Code', href: codeUrl, primary: true, external: true },
+  { label: 'Models', href: modelUrl, primary: false, external: true },
   { label: 'Benchmarks', href: '#benchmarks', primary: false, external: false },
   { label: 'Architecture', href: '#training', primary: false, external: false },
   { label: 'Examples', href: '#examples', primary: false, external: false },
@@ -44,7 +46,8 @@ const benchmarks = [
     priorModel: 'Audio Flamingo 3',
     metric: 'ACC ↑',
     prior: '72.42',
-    result: '74.20',
+    result: '75.76',
+    afNextVariant: 'AF-Next-Captioner',
   },
   {
     area: 'General audio QA',
@@ -52,7 +55,8 @@ const benchmarks = [
     priorModel: 'Gemini 2.0 Flash',
     metric: 'ACC ↑',
     prior: '55.7',
-    result: '56.9',
+    result: '58.7',
+    afNextVariant: 'AF-Next-Think',
   },
   {
     area: 'Long-audio reasoning',
@@ -61,6 +65,7 @@ const benchmarks = [
     metric: 'GPT4o ↑',
     prior: '68.6',
     result: '73.9',
+    afNextVariant: 'AF-Next-Instruct',
   },
   {
     area: 'Long-audio reasoning',
@@ -69,14 +74,16 @@ const benchmarks = [
     metric: 'GPT4o ↑',
     prior: '72.9',
     result: '81.2',
+    afNextVariant: 'AF-Next-Instruct',
   },
   {
     area: 'Music transfer',
     benchmark: 'MuchoMusic',
-    priorModel: 'Audio Flamingo 3',
+    priorModel: 'Music Flamingo',
     metric: 'ACC ↑',
-    prior: '47.4',
+    prior: '74.5',
     result: '75.6',
+    afNextVariant: 'AF-Next-Instruct',
   },
   {
     area: 'Music transfer',
@@ -85,6 +92,7 @@ const benchmarks = [
     metric: 'ACC ↑',
     prior: '62.0 | 78.8',
     result: '66.7 | 81.7',
+    afNextVariant: 'AF-Next-Instruct',
   },
   {
     area: 'Music transfer',
@@ -93,6 +101,7 @@ const benchmarks = [
     metric: 'ACC ↑',
     prior: '85.80',
     result: '92.13',
+    afNextVariant: 'AF-Next-Instruct',
   },
   {
     area: 'Captioning',
@@ -101,6 +110,7 @@ const benchmarks = [
     metric: 'GPT5 ↑',
     prior: '6.7 | 6.2',
     result: '8.8 | 8.9',
+    afNextVariant: 'AF-Next-Instruct',
   },
 ]
 
@@ -230,8 +240,8 @@ const limitations = [
         <div class="space-y-6 lg:flex-1">
           <h2 class="text-3xl md:text-4xl font-bold mb-2 tracking-tight">Performance Snapshot</h2>
           <p class="text-base text-gray-600 leading-relaxed">
-            AF-Next improves general audio QA, long-audio understanding, and several music transfer benchmarks,
-            showing broad gains across the speech, sound, and music evaluations highlighted on this page.
+            AF-Next improves general audio QA, long-audio understanding, and several music transfer benchmarks.
+            The numbers below use the strongest AF-Next variant reported in the current paper for each task.
           </p>
           <div class="overflow-x-auto">
             <table class="performance-table min-w-full text-base text-left text-gray-700 border border-gray-200 rounded-lg">
@@ -250,7 +260,7 @@ const limitations = [
                     Metric
                   </th>
                   <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-gray-600 border-b border-gray-200">
-                    AF-Next
+                    Best AF-Next
                   </th>
                 </tr>
               </thead>
@@ -265,7 +275,10 @@ const limitations = [
                     <div class="text-sm text-gray-500">{{ row.prior }}</div>
                   </td>
                   <td class="px-4 py-3 align-top text-center whitespace-nowrap">{{ row.metric }}</td>
-                  <td class="px-4 py-3 align-top text-center font-semibold text-teal-700">{{ row.result }}</td>
+                  <td class="px-4 py-3 align-top text-center">
+                    <div class="font-semibold text-teal-700">{{ row.result }}</div>
+                    <div class="text-xs text-gray-500 mt-1">{{ row.afNextVariant }}</div>
+                  </td>
                 </tr>
               </tbody>
             </table>

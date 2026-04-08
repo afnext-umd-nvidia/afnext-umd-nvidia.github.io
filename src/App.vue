@@ -28,6 +28,7 @@ const topLinks = [
   { label: 'Models', href: modelUrl, primary: false, external: true },
   { label: 'Benchmarks', href: '#benchmarks', primary: false, external: false },
   { label: 'Architecture', href: '#training', primary: false, external: false },
+  { label: 'Demos', href: '#demo-prompts', primary: false, external: false },
   { label: 'Examples', href: '#examples', primary: false, external: false },
 ]
 
@@ -155,6 +156,25 @@ const variants = [
   },
 ]
 
+const demoExamples = [
+  {
+    title: 'Long Captions',
+    category: 'Dense Captioning',
+    prompt: 'Write a detailed caption of the input audio capturing sound, music and speech details',
+  },
+  {
+    title: 'Timestamped Captions',
+    category: 'Event Timeline',
+    prompt: 'Describe all events in the audio with start and end times.',
+  },
+  {
+    title: 'Timestamped ASR',
+    category: 'Speech Transcription',
+    prompt:
+      'Transcribe the spoken context to written English text. Provide segment-level timestamps for the transcription',
+  },
+]
+
 const limitations = [
   'Internet-scale audio is still noisy and unevenly distributed across languages, rare events, and specialized domains.',
   'Long-context reasoning improves substantially, but sparse evidence spread across distant segments remains difficult.',
@@ -189,8 +209,9 @@ const limitations = [
           <sup>2</sup> University of Maryland, College Park, USA
         </p>
         <p class="text-base md:text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          AF-Next advances the Audio Flamingo series with stronger general audio understanding, longer context, richer
-          real-world training data, and timestamp-grounded reasoning for complex long-form recordings.
+          AF-Next is the most advanced LALM in the Audio Flamingo series yet, with stronger general audio
+          understanding, longer context, richer real-world training data, and timestamp-grounded reasoning for complex
+          long-form recordings.
         </p>
         <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
           <a v-for="link in topLinks" :key="link.href" :href="link.href"
@@ -206,11 +227,11 @@ const limitations = [
     <div class="section-card">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Why It Matters</h2>
       <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
-        Audio Flamingo Next is the strongest model in the Audio Flamingo series so far. AF-Next pushes open
-        audio-language modeling beyond narrow benchmark-centric training by scaling data curation across long-form
-        speech, environmental audio, and music, then pairing that with a curriculum that extends context length and
-        strengthens reasoning. Compared with earlier Audio Flamingo models, AF-Next is built to handle longer, noisier,
-        and more realistic recordings while remaining competitive across a broad set of established evaluations.
+        AF-Next pushes open audio-language modeling beyond narrow benchmark-centric training by scaling data curation
+        across long-form speech, environmental audio, and music, then pairing that with a curriculum that extends
+        context length and strengthens reasoning. Compared with earlier Audio Flamingo models, AF-Next is built to
+        handle longer, noisier, and more realistic recordings while remaining competitive across a broad set of
+        established evaluations.
       </p>
 
       <h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Key Features</h2>
@@ -321,13 +342,23 @@ const limitations = [
             timestamped captions, and multi-turn audio chat.
           </p>
         </div>
+      </div>
+    </div>
 
-        <div class="space-y-4">
-          <img src="/figures/capabilities.webp" alt="Examples of AF-Next capabilities"
-            class="w-full h-auto rounded-xl border border-gray-200 bg-white shadow-sm" loading="lazy">
-          <p class="text-base text-gray-700 leading-relaxed">
-            Example outputs highlight multi-audio chat, detailed timestamped captioning, and time-grounded
-            chain-of-thought reasoning over harder recordings.
+    <div id="demo-prompts" class="section-card">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Demo Prompts</h2>
+      <p class="text-base text-gray-700 leading-relaxed mb-8 max-w-4xl">
+        These three prompt patterns showcase the captioning, time-grounded event description, and timestamped speech
+        transcription workflows highlighted by AF-Next.
+      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div v-for="example in demoExamples" :key="example.title" class="demo-card h-full">
+          <div class="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+            {{ example.category }}
+          </div>
+          <h3 class="mt-4 text-2xl font-semibold text-gray-900">{{ example.title }}</h3>
+          <p class="mt-4 prompt-card text-sm md:text-base text-gray-700 leading-relaxed">
+            {{ example.prompt }}
           </p>
         </div>
       </div>
@@ -418,6 +449,21 @@ const limitations = [
   box-shadow: 0 20px 35px -20px rgba(15, 23, 42, 0.2);
   background-color: rgba(249, 250, 251, 0.9);
   padding: 1.25rem;
+}
+
+.demo-card {
+  border-radius: 1rem;
+  border: 1px solid #ccfbf1;
+  box-shadow: 0 24px 45px -28px rgba(13, 148, 136, 0.24);
+  background: linear-gradient(180deg, rgba(240, 253, 250, 0.95) 0%, rgba(249, 250, 251, 0.92) 100%);
+  padding: 1.5rem;
+}
+
+.prompt-card {
+  border-radius: 0.875rem;
+  border: 1px solid #d1fae5;
+  background-color: rgba(255, 255, 255, 0.88);
+  padding: 1rem;
 }
 
 .resource-card {

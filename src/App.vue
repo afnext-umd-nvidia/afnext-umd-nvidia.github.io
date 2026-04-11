@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const codeUrl = 'https://github.com/NVIDIA/audio-flamingo'
-const modelUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-hf'
+const instructUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-hf'
+const captionerUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-captioner-hf'
 
 const authors = [
   { name: 'Sreyan Ghosh', affiliations: '1,2' },
@@ -25,7 +26,8 @@ const authors = [
 
 const topLinks = [
   { label: 'Code', href: codeUrl, primary: true, external: true },
-  { label: 'Models', href: modelUrl, primary: false, external: true },
+  { label: 'Instruct', href: instructUrl, primary: false, external: true },
+  { label: 'Captioner', href: captionerUrl, primary: false, external: true },
   { label: 'Benchmarks', href: '#benchmarks', primary: false, external: false },
   { label: 'Architecture', href: '#training', primary: false, external: false },
   { label: 'Outputs', href: '#model-outputs', primary: false, external: false },
@@ -141,7 +143,7 @@ const variants = [
   {
     title: 'AF-Next-Instruct',
     description:
-      'General-purpose checkpoint for question answering, instruction following, multi-turn interaction, and broad long-audio understanding.',
+      'Default checkpoint for QA, chat, ASR-style tasks, and direct assistant-like answers over long audio.',
   },
   {
     title: 'AF-Next-Think',
@@ -151,7 +153,7 @@ const variants = [
   {
     title: 'AF-Next-Captioner',
     description:
-      'Captioning-oriented checkpoint for dense descriptions across speech, sound, and music, including long-form summaries.',
+      'Use this one when you want denser long-form captions, richer scene descriptions, and timestamp-aware summaries.',
   },
 ]
 
@@ -371,6 +373,14 @@ const limitations = [
           AF-Next is the most advanced LALM in the Audio Flamingo series yet, with stronger general audio
           understanding, longer context, richer real-world training data, and timestamp-grounded reasoning for complex
           long-form recordings.
+        </p>
+        <p class="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <a href="https://huggingface.co/nvidia/audio-flamingo-next-hf" target="_blank" rel="noopener"
+            class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-3">AF-Next-Instruct</a>
+          is the default checkpoint for QA, chat, and ASR-style use.
+          <a href="https://huggingface.co/nvidia/audio-flamingo-next-captioner-hf" target="_blank" rel="noopener"
+            class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-3">AF-Next-Captioner</a>
+          is better when you want denser long-form captions and more descriptive outputs.
         </p>
         <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
           <a v-for="link in topLinks" :key="link.href" :href="link.href"

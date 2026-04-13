@@ -384,6 +384,11 @@ const limitations = [
             class="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-3">AF-Next-Captioner</a>
           is better when you want denser long-form captions and more descriptive outputs.
         </p>
+        <p class="text-sm md:text-base text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          Prompting note: AF-Next is strongest with explicit task-specific prompts. Use Instruct for QA, ASR, AST,
+          timestamps, or speaker labels, Captioner for dense or timestamped captions, and Think for step-by-step
+          timestamp-grounded reasoning.
+        </p>
         <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
           <a v-for="link in topLinks" :key="link.href" :href="link.href"
             :target="link.external ? '_blank' : undefined"

@@ -203,6 +203,7 @@ const timeGroundedExamples = [
     variant: 'AF-Next-Captioner',
     sourceUrl: '/videos/love-song-captions-overlay.mp4',
     sourceLabel: 'Open video',
+    showResponse: false,
     prompt: 'Describe the audio over time, including instrumentation, vocal delivery, and timestamped lyrics.',
     responseLabel: 'AF-Next-Captioner response',
     output: `The audio begins with an instrumental intro featuring a gentle, fingerpicked acoustic guitar playing a melancholic, arpeggiated melody. The tempo is slow, creating a reflective and intimate mood. The texture is sparse, focusing on the clean, warm tone of the guitar. There are no lyrics or other instruments present.
@@ -217,6 +218,7 @@ The male vocalist continues with the same intimate and heartfelt delivery. The a
     variant: 'AF-Next-Instruct',
     sourceUrl: 'https://youtu.be/i4jtyeZQCgY',
     sourceLabel: 'Watch on YouTube',
+    showResponse: true,
     prompt: 'Transcribe the spoken content to written English text. Provide segment-level timestamps for the transcription.',
     responseLabel: 'AF-Next-Instruct transcription',
     output: `<t>0.0-0.066</t> Speaker 1 (Female, Interviewer): Well, Dana, I don't know that you could have written a better script for episode one, season two. Who's going to the big show?
@@ -558,7 +560,7 @@ const limitations = [
         <div class="output-section__heading">
           <h3 class="text-2xl md:text-3xl font-semibold tracking-tight">Time-Grounded Outputs</h3>
           <p class="text-base text-gray-600 leading-relaxed">
-            Two video overlays plus two timestamped text examples: one event timeline and one reporter-style ASR transcript.
+            Two video overlays with prompts, plus one timestamped ASR transcript example.
           </p>
         </div>
         <div class="time-grounded-pairs">
@@ -585,7 +587,7 @@ const limitations = [
                 <p class="output-label">Prompt</p>
                 <p class="output-prompt">{{ pair.example.prompt }}</p>
               </div>
-              <div class="time-grounded-card__detail-block">
+              <div v-if="pair.example.showResponse" class="time-grounded-card__detail-block">
                 <p class="output-label time-grounded-pair__response-label">{{ pair.example.responseLabel }}</p>
                 <div class="output-scroll output-scroll--time">{{ pair.example.output }}</div>
               </div>

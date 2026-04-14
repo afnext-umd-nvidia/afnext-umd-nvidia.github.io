@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const codeUrl = 'https://github.com/NVIDIA/audio-flamingo'
-const paperUrl = '/AF-Next.pdf'
+const arxivUrl = 'https://arxiv.org/abs/2604.10905'
 const instructUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-hf'
 const captionerUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-captioner-hf'
 
@@ -27,7 +27,7 @@ const authors = [
 
 const topLinks = [
   { label: 'Code', href: codeUrl, primary: true, external: true },
-  { label: 'Paper', href: paperUrl, primary: false, external: true },
+  { label: 'arXiv', href: arxivUrl, primary: false, external: true },
   { label: 'Instruct', href: instructUrl, primary: false, external: true },
   { label: 'Captioner', href: captionerUrl, primary: false, external: true },
   { label: 'Benchmarks', href: '#benchmarks', primary: false, external: false },

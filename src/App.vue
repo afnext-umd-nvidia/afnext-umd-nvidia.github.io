@@ -2,6 +2,7 @@
 const codeUrl = 'https://github.com/NVIDIA/audio-flamingo'
 const arxivUrl = 'https://arxiv.org/abs/2604.10905'
 const instructUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-hf'
+const thinkUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-think-hf'
 const captionerUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-captioner-hf'
 const instructSpaceUrl = 'https://huggingface.co/spaces/nvidia/audio-flamingo-next'
 const thinkSpaceUrl = 'https://huggingface.co/spaces/nvidia/audio-flamingo-next-think'
@@ -32,6 +33,7 @@ const topLinks = [
   { label: 'Code', href: codeUrl, primary: true, external: true },
   { label: 'arXiv', href: arxivUrl, primary: false, external: true },
   { label: 'Instruct', href: instructUrl, primary: false, external: true },
+  { label: 'Think', href: thinkUrl, primary: false, external: true },
   { label: 'Captioner', href: captionerUrl, primary: false, external: true },
   { label: 'Benchmarks', href: '#benchmarks', primary: false, external: false },
   { label: 'Architecture', href: '#training', primary: false, external: false },

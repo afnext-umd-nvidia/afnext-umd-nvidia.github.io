@@ -5,20 +5,20 @@ const instructUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-hf'
 const captionerUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-captioner-hf'
 
 const authors = [
-  { name: 'Sreyan Ghosh', affiliations: '1,2' },
-  { name: 'Arushi Goel', affiliations: '1' },
+  { name: 'Sreyan Ghosh', affiliations: '1,2', href: 'https://sreyan88.github.io/' },
+  { name: 'Arushi Goel', affiliations: '1', href: 'https://goelarushi.github.io/' },
   { name: 'Kaousheik Jayakumar', affiliations: '2' },
   { name: 'Lasha Koroshinadze', affiliations: '2' },
-  { name: 'Nishit Anand', affiliations: '2' },
-  { name: 'Zhifeng Kong', affiliations: '1' },
-  { name: 'Siddharth Gururani', affiliations: '1' },
-  { name: 'Sang-gil Lee', affiliations: '1' },
-  { name: 'Jaehyeon Kim', affiliations: '1' },
+  { name: 'Nishit Anand', affiliations: '2', href: 'https://nishitanand.github.io/' },
+  { name: 'Zhifeng Kong', affiliations: '1', href: 'https://cseweb.ucsd.edu/~z4kong/' },
+  { name: 'Siddharth Gururani', affiliations: '1', href: 'https://research.nvidia.com/person/siddharth-gururani' },
+  { name: 'Sang-gil Lee', affiliations: '1', href: 'https://l0sg.github.io/' },
+  { name: 'Jaehyeon Kim', affiliations: '1', href: 'https://jaywalnut310.github.io/#/about' },
   { name: 'Aya Aljafari', affiliations: '1' },
-  { name: 'Chao-Han Huck Yang', affiliations: '1' },
+  { name: 'Chao-Han Huck Yang', affiliations: '1', href: 'https://research.nvidia.com/person/huck-yang' },
   { name: 'Sungwon Kim', affiliations: '1' },
-  { name: 'Ramani Duraiswami', affiliations: '2' },
-  { name: 'Dinesh Manocha', affiliations: '2' },
+  { name: 'Ramani Duraiswami', affiliations: '2', href: 'https://www.cs.umd.edu/people/ramanid' },
+  { name: 'Dinesh Manocha', affiliations: '2', href: 'https://www.cs.umd.edu/people/dmanocha' },
   { name: 'Mohammad Shoeybi', affiliations: '1' },
   { name: 'Bryan Catanzaro', affiliations: '1' },
   { name: 'Ming-Yu Liu', affiliations: '1' },
@@ -364,7 +364,16 @@ const limitations = [
           <span class="font-semibold text-gray-800">Authors:</span>&nbsp;
           <template v-for="(author, index) in authors" :key="author.name">
             <span class="inline-block whitespace-nowrap">
-              {{ author.name }}<sup>{{ author.affiliations }}</sup><span v-if="index < authors.length - 1">,&nbsp;</span>
+              <a
+                v-if="author.href"
+                :href="author.href"
+                target="_blank"
+                rel="noopener"
+                class="font-medium text-teal-700 underline decoration-teal-300 underline-offset-3"
+              >
+                {{ author.name }}
+              </a>
+              <template v-else>{{ author.name }}</template><sup>{{ author.affiliations }}</sup><span v-if="index < authors.length - 1">,&nbsp;</span>
             </span>
           </template>
         </div>
@@ -400,6 +409,67 @@ const limitations = [
           </a>
         </div>
       </header>
+    </div>
+
+    <div class="section-card">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Prompt Guide</h2>
+      <div class="overflow-x-auto">
+        <table class="performance-table prompt-guide-table min-w-full text-sm md:text-base text-left text-gray-700 border border-gray-200 rounded-lg">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-600 border-b border-gray-200">Task</th>
+              <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-600 border-b border-gray-200">Prompt</th>
+              <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-600 border-b border-gray-200">Recommended Checkpoint(s)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 align-top font-medium text-gray-900">ASR</td>
+              <td class="px-4 py-3 align-top"><code>Transcribe the input speech.</code></td>
+              <td class="px-4 py-3 align-top"><code>Instruct</code>, <code>Think</code></td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 align-top font-medium text-gray-900">AST</td>
+              <td class="px-4 py-3 align-top"><code>Translate any speech you hear from &lt;src_lang&gt; into &lt;tgt_lang&gt;.</code></td>
+              <td class="px-4 py-3 align-top"><code>Instruct</code>, <code>Think</code></td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 align-top font-medium text-gray-900">Short Audio Captioning</td>
+              <td class="px-4 py-3 align-top"><code>Generate a caption for the input audio.</code></td>
+              <td class="px-4 py-3 align-top"><code>Captioner</code>, <code>Think</code></td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 align-top font-medium text-gray-900">Long Audio Captioning</td>
+              <td class="px-4 py-3 align-top"><code>Generate a detailed caption for the input audio. In the caption, transcribe all spoken content by all speakers in the audio precisely.</code></td>
+              <td class="px-4 py-3 align-top"><code>Captioner</code>, <code>Think</code></td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 align-top font-medium text-gray-900">Music Captioning</td>
+              <td class="px-4 py-3 align-top"><code>Summarize the track with precision: mention its musical style, BPM, key, arrangement, production choices, and the emotions or story it conveys.</code></td>
+              <td class="px-4 py-3 align-top"><code>Captioner</code>, <code>Instruct</code>, <code>Think</code></td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 align-top font-medium text-gray-900">Lyrics</td>
+              <td class="px-4 py-3 align-top"><code>Generate a lyrics transcription from the input song.</code></td>
+              <td class="px-4 py-3 align-top"><code>Instruct</code>, <code>Captioner</code>, <code>Think</code></td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 align-top font-medium text-gray-900">QA</td>
+              <td class="px-4 py-3 align-top"><code>What precise description did the commentator use for the punch that ended the fight?</code></td>
+              <td class="px-4 py-3 align-top"><code>Instruct</code>, <code>Think</code></td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 align-top font-medium text-gray-900">Timestamped Multi-Talker ASR</td>
+              <td class="px-4 py-3 align-top prompt-guide__multi">
+                <code>Transcribe the input audio. If multiple speakers are present, provide diarized transcripts with speaker labels.</code><br>
+                <code>[Speaker 1] ...</code><br>
+                <code>[Speaker 2] ...</code>
+              </td>
+              <td class="px-4 py-3 align-top"><code>Instruct</code>, <code>Think</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="section-card">

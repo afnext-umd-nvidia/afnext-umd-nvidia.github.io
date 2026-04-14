@@ -3,6 +3,9 @@ const codeUrl = 'https://github.com/NVIDIA/audio-flamingo'
 const arxivUrl = 'https://arxiv.org/abs/2604.10905'
 const instructUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-hf'
 const captionerUrl = 'https://huggingface.co/nvidia/audio-flamingo-next-captioner-hf'
+const instructSpaceUrl = 'https://huggingface.co/spaces/nvidia/audio-flamingo-next'
+const thinkSpaceUrl = 'https://huggingface.co/spaces/nvidia/audio-flamingo-next-think'
+const captionerSpaceUrl = 'https://huggingface.co/spaces/nvidia/audio-flamingo-next-captioner'
 
 const authors = [
   { name: 'Sreyan Ghosh', affiliations: '1,2', href: 'https://sreyan88.github.io/' },
@@ -33,6 +36,27 @@ const topLinks = [
   { label: 'Benchmarks', href: '#benchmarks', primary: false, external: false },
   { label: 'Architecture', href: '#training', primary: false, external: false },
   { label: 'Outputs', href: '#model-outputs', primary: false, external: false },
+]
+
+const demoBadges = [
+  {
+    label: 'Instruct Demo',
+    href: instructSpaceUrl,
+    image:
+      'https://img.shields.io/badge/%F0%9F%A4%97-Space%3A%20AF--Next%20Instruct-5F9EA0.svg',
+  },
+  {
+    label: 'Think Demo',
+    href: thinkSpaceUrl,
+    image:
+      'https://img.shields.io/badge/%F0%9F%A4%97-Space%3A%20AF--Next%20Think-0E7490.svg',
+  },
+  {
+    label: 'Captioner Demo',
+    href: captionerSpaceUrl,
+    image:
+      'https://img.shields.io/badge/%F0%9F%A4%97-Space%3A%20AF--Next%20Captioner-0F766E.svg',
+  },
 ]
 
 const keyFeatures = [
@@ -406,6 +430,19 @@ const limitations = [
             :rel="link.external ? 'noopener' : undefined"
             :class="link.primary ? 'btn-primary' : 'btn-secondary'">
             {{ link.label }}
+          </a>
+        </div>
+        <div class="hero-badges">
+          <span class="hero-badges__label">Try the demos:</span>
+          <a
+            v-for="badge in demoBadges"
+            :key="badge.href"
+            :href="badge.href"
+            target="_blank"
+            rel="noopener"
+            class="hero-badges__link"
+          >
+            <img :src="badge.image" :alt="badge.label" height="20">
           </a>
         </div>
       </header>
@@ -805,6 +842,31 @@ const limitations = [
 .btn-secondary:hover {
   background-color: #f0fdfa;
   border-color: #99f6e4;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding-top: 0.25rem;
+}
+
+.hero-badges__label {
+  color: #4b5563;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.hero-badges__link {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.15s ease;
+}
+
+.hero-badges__link:hover {
+  transform: translateY(-1px);
 }
 
 .mini-card {

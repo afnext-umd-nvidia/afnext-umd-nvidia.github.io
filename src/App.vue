@@ -246,49 +246,10 @@ The male vocalist continues with the same intimate and heartfelt delivery. The a
     variant: 'AF-Next-Instruct',
     sourceUrl: 'https://youtu.be/i4jtyeZQCgY',
     sourceLabel: 'Watch on YouTube',
-    showResponse: true,
+    showResponse: false,
     prompt: 'Transcribe the spoken content to written English text. Provide segment-level timestamps for the transcription.',
-    responseLabel: 'AF-Next-Instruct transcription',
-    output: `<t>0.0-0.066</t> Speaker 1 (Female, Interviewer): Well, Dana, I don't know that you could have written a better script for episode one, season two. Who's going to the big show?
-<t>0.066-0.134</t> Speaker 2 (Male, Interviewee): Well, we we uh last season we had Menfield here and we sent him away and said come back when you get some more experience.
-<t>0.134-0.174</t> Speaker 2 (Male, Interviewee): He did that and obviously he looks spectacular tonight.
-<t>0.174-0.204</t> Speaker 2 (Male, Interviewee): So he is in. We are we are definitely going to take him.
-<t>0.204-0.214</t> Speaker 2 (Male, Interviewee): Um.
-<t>0.214-0.284</t> Speaker 2 (Male, Interviewee): And then this is strange, but uh, you know, when you look at a guy like Hardy, Hardy has has no experience.
-<t>0.284-0.314</t> Speaker 2 (Male, Interviewee): Um, tonight was his first professional fight.
-<t>0.314-0.374</t> Speaker 2 (Male, Interviewee): And um, but man, he can punch and obviously, you know, there's a lot more to that guy.
-<t>0.374-0.484</t> Speaker 2 (Male, Interviewee): Um, so what we're going to do is we're we're actually going to bring Hardy in and put him on a um, you know, you know, this this guy needs needs to get some more experience.
-<t>0.484-0.514</t> Speaker 2 (Male, Interviewee): And uh, we'll figure out how to do that.
-<t>0.514-0.534</t> Speaker 2 (Male, Interviewee): We've done this before and uh.
-<t>0.534-0.564</t> Speaker 2 (Male, Interviewee): And that's it. We'll take Menfield and Hardy.
-<t>0.564-0.574</t> Speaker 1 (Female, Interviewer): Congratulations.
-<t>0.574-1.034</t> Speaker 1 (Female, Interviewer): If Hardy is able to go away and get that experience, how quickly can you imagine yourself bringing him into the UFC?
-<t>1.034-1.044</t> Speaker 2 (Male, Interviewee): I don't know if he goes away.
-<t>1.044-1.094</t> Speaker 2 (Male, Interviewee): We we've talked about some ideas to help this guy grow and uh he's already with a great team.
-<t>1.094-1.144</t> Speaker 2 (Male, Interviewee): He he's he's he's uh he's with a great team right now, he's with Dan Lambert and his crew down in Florida.
-<t>1.144-1.224</t> Speaker 2 (Male, Interviewee): Um, you know, he's in the right place as far as uh training and learning and uh now he just needs some experience and uh and we can do that too.
-<t>1.224-1.274</t> Speaker 1 (Female, Interviewer): Well, Alonzo Menfield certainly proved himself to be a light heavyweight to contend with.
-<t>1.274-1.294</t> Speaker 1 (Female, Interviewer): What kind of impact do you think he can make on that division?
-<t>1.294-1.334</t> Speaker 2 (Male, Interviewee): No, I mean if he fights like he fought tonight, who knows what can happen to the kid?
-<t>1.334-1.364</t> Speaker 2 (Male, Interviewee): He look great, explosive, fast, athletic, strong.
-<t>1.364-1.384</t> Speaker 2 (Male, Interviewee): Um, yeah.
-<t>1.384-1.424</t> Speaker 1 (Female, Interviewer): We've got a lot of week two fighters, I'm sure watching right now.
-<t>1.424-1.454</t> Speaker 1 (Female, Interviewer): What's what's your message to the guys watching right now that are fighting next week?
-<t>1.454-1.464</t> Speaker 2 (Male, Interviewee): Well, I can tell you this.
-<t>1.464-1.484</t> Speaker 2 (Male, Interviewee): If you don't have some killer instinct, get it.
-<t>1.484-1.564</t> Speaker 2 (Male, Interviewee): Because you have one shot. You come in here, you fight in front of us and uh we watch and and and we we we decide right there.
-<t>1.564-2.024</t> Speaker 2 (Male, Interviewee): If you come in and you look like Menfield looked, you're probably going to get signed. If you come in and look like some of the other guys look, you're probably not going to get signed.
-<t>2.024-2.074</t> Speaker 2 (Male, Interviewee): So, come in here and give it everything you got and uh win the fight impressively.
-<t>2.074-2.084</t> Speaker 1 (Female, Interviewer): Dana, thank you so much.
-<t>2.084-2.104</t> Speaker 1 (Female, Interviewer): Alonzo, why did you step on in here?
-<t>2.104-2.124</t> Speaker 2 (Male, Interviewee): Oh, look at you.
-<t>2.124-2.134</t> Speaker 2 (Male, Interviewee): Congratulations, man.
-<t>2.134-2.144</t> Speaker 2 (Male, Interviewee): You look great, kid.
-<t>2.144-2.154</t> Speaker 1 (Female, Interviewer): Thank you, thank you.
-<t>2.154-2.164</t> Speaker 2 (Male, Interviewee): All right, movement.
-<t>2.164-2.194</t> Speaker 1 (Female, Interviewer): How good does it feel to have Dana White tell you you look good?
-<t>2.194-2.214</t> Speaker 2 (Male, Interviewee): Feel is awesome, you know, could have been a UFC when it was like little and he blew it up.
-<t>2.214-2.244</t> Speaker 2 (Male, Interviewee): And for him to tell me that I I I feel honored.`,
+    responseLabel: '',
+    output: '',
   },
 ]
 
@@ -676,7 +637,7 @@ const limitations = [
         <div class="output-section__heading">
           <h3 class="text-2xl md:text-3xl font-semibold tracking-tight">Time-Grounded Outputs</h3>
           <p class="text-base text-gray-600 leading-relaxed">
-            Two video overlays with prompts, plus one timestamped ASR transcript example.
+            Two video overlays with prompts, plus one timestamped ASR prompt example.
           </p>
         </div>
         <div class="time-grounded-pairs">
